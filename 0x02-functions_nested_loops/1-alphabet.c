@@ -2,7 +2,7 @@
 /**
  * print_alphabet: Entry point
  * Description: Prints alphabets
- * Return: 0
+ * Return: void
  */
 void print_alphabet(void)
 {
@@ -16,5 +16,4 @@ void print_alphabet(void)
 		im++;
 	}
 	_putchar('\n');
-	return (0);
 }
