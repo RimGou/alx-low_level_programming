@@ -4,7 +4,7 @@
  * output when given a case of 0.
  *Return: 0
  */
-void positive_or_negative(int i);
+int main(void)
 {
     int i;
  
