@@ -6,7 +6,7 @@
  * Return: 0
  */
 
-int _putchar(char c)
+int _putchar(_putchar)
 {
   return (0);
 }
