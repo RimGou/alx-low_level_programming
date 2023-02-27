@@ -7,7 +7,7 @@
 
 int _atoi(char *s)
 {
-	char s;
+	int s;
 	s = 0;
 
 	return (0);
