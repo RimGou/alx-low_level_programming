@@ -2,7 +2,7 @@
 /**
   * _strlen - changes the initial.
   * @s: parameter to change.
-  * Return: len
+  * Return: 0
   */
 
 int _strlen(char *s)
@@ -14,5 +14,5 @@ int _strlen(char *s)
 		len = len + 1;
 		s = s + 1;
 	}
-	return (len);
+	return (0);
 }
