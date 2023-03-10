@@ -1,20 +1,29 @@
 #include "main.h"
+#include <stdio.h>
 /**
- * _strncat - concatenates two strings
- * @dest: the destination buffer
- * @src: the source buffer
- * @n: the number of bytes to copy, at most
- * Return: pointer to destination buffer
+ * _strncat - function that concatenates two strings
+ * @dest: parameter defined in main
+ * @src: parameter defined in main
+ * @n: parameter defined in main
+ * Return: memory address of function (string)
  */
 
 char *_strncat(char *dest, char *src, int n)
 {
-	char *r = dest;
+	char *tmp1 = dest;
+	char *tmp2 = src;
 
-	while (*dest)
+	while (*dest != '\0')
+	{
 		dest++;
-	while (*src && n--)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (r);
+	}
+	while (src < tmp2 + n && *src != '\0')
+	{
+		*dest = *src;
+		src++;
+		dest++;
+	}
+	*dest++ = '\0';
+	dest = tmp1;
+	return (dest);
 }
