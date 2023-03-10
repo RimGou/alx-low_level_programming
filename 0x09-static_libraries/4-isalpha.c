@@ -1,21 +1,25 @@
 #include "main.h"
 /**
- * _isalpha - checks for lowercase character
- * @c: parameter is hard-coded in main function
- * Return: 0 or 1
+ * _isalpha - Entry point
+ * @c: input char
+ * Description: check for alphabets
+ * Return: 1 if alphabets 0 otherwise
  */
-
 int _isalpha(int c)
 {
-	int i;
+	char b;
 
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	for (b = 'a'; b <= 'z'; b++)
 	{
-		i = 1;
+		if (c == b)
+			return (1);
 	}
-	else
+
+	for (b = 'A'; b <= 'Z'; b++)
 	{
-		i = 0;
+		if (c == b)
+			return (1);
 	}
-	return (i);
+
+	return (0);
 }

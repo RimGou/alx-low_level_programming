@@ -1,14 +1,34 @@
 #include "main.h"
+
 /**
- * _atoi - tbd
- *
- * @s: parameter defined in main, pointer to memory
- *
- * Return: 0 for now
+ * _atoi - function with one argument
+ * @s: char type pointer argument
+ * Description: convert a string to an integer
+ * Return: value of s
  */
 
 int _atoi(char *s)
 {
-	s = s + 1;
-	return (0);
+	int i, mist, comb;
+
+	i = 0;
+	mist = 1;
+	comb = 0;
+
+	while (s[i] != '\0')
+	{
+		if (s[i] == '-')
+			mist *= -1;
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			while (s[i] >= '0' && s[i] <= '9')
+			{
+				comb = (s[i] - '0') * mist + comb * 10;
+				i++;
+			}
+			break;
+		}
+		i++;
+	}
+	return (comb);
 }
