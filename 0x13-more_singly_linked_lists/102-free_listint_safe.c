@@ -1,29 +1,33 @@
 #include "lists.h"
 /**
- * free_listint_safe - prints a list
- * @h: address of pointer to first node
- * Return: address of head
+ * free_listint_safe - free a list
+ * @h: the pointer to the list to free
+ * Return: size of free'd list
  */
 
 size_t free_listint_safe(listint_t **h)
 {
-	size_t c = 0;
-	listint_t *head, *temp;
-	long diff;
+	size_t nodes = 0;
+	listint_t *temp = NULL;
 
-	if (!h)
-		return (0);
-	head = *h;
-	*h = NULL;
-	while (head)
+	if (!(h && *h))
+		return (nodes);
+
+	while (*h)
 	{
-		c++;
-		diff = head->next - head;
-		temp = head;
-		free(temp);
-		if (diff >= 0)
-			break;
-		head = head->next;
+		nodes++;
+		if (*h > (*h)->next)
+		{
+			temp = *h;
+			*h = (*h)->next;
+			free(temp);
+		}
+		else
+		{
+			free(*h);
+			*h = NULL;
+		}
 	}
-	return (c);
+	*h = NULL;
+	return (nodes);
 }
