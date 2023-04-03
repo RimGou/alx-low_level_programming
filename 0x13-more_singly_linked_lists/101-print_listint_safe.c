@@ -1,25 +1,36 @@
 #include "lists.h"
 /**
- * print_listint_safe - prints a list
- * @head: address of pointer to first node
- * Return: address of head
+ * print_listint_safe - print a list
+ * @head: the head of the list
+ * Return: number of nodes
  */
 
 size_t print_listint_safe(const listint_t *head)
 {
-	if (head)
-	{
-		printf("[%p] %d\n", (void *)head, head->n);
-		if (head->next < head)
-		{
-			return (1 + print_listint_safe(head->next));
-		}
-		else
-		{
-			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
-			return (1);
-		}
+	size_t nodes = 0;
+	size_t dist;
+	const listint_t *ptr = head;
+	const listint_t *nxt;
 
+	while (ptr)
+	{
+		printf("[%p] %d\n", (void *)ptr, ptr->n);
+
+		nodes++;
+		ptr = ptr->next;
+		nxt = head;
+
+		dist = 0;
+		while (dist < nodes)
+		{
+			if (ptr == nxt)
+			{
+				printf("-> [%p] %d\n", (void *)ptr, ptr->n);
+				return (nodes);
+			}
+			nxt = nxt->next;
+			dist++;
+		}
 	}
-	return (0);
+	return (nodes);
 }
